@@ -19,9 +19,7 @@ const GuestProf= ({loggedInGuest, setLoggedInGuest, setIsLoggedIn}) => {
       <p>username: {loggedInGuest.username}</p>
       <Link to={"/reservations"}>View and edit my reservations</Link>
       <button onClick={logOutGuest}>Log Out</button>
-    </div>
-    
+    </div> 
   )
 }
-
 export default GuestProf
