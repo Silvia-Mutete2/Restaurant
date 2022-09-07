@@ -11,13 +11,22 @@ import GuestNav from "./components/navigation/GuestNav";
 
 const App = () => {
 
+  const [restaurants, setRestaurants] = useState([])
+  
+
+  useEffect(() => {
+    fetch("http://localhost:9292/restaurants")
+      .then(r => r.json())
+      .then(fetchedRestaurants => setRestaurants(fetchedRestaurants))
+  }, [])
+
   return (
     <BrowserRouter>
     <Header />
      <GuestNav /> 
      <Navbar />
     <Routes>
-        <Route exact path="/restaurants" element={<RestaurantList  />} />
+        <Route exact path="/restaurants" element={<RestaurantList restaurants={restautants} />} />
         <Route exact path="/profile" element={<GuestProf />} />
         <Route exact path="/reservations" element={<ReservationList/>} />
 
