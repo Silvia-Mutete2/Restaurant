@@ -56,6 +56,11 @@ const App = () => {
     setGuests(updatedGuests)
   }
 
+  const onDeleteReservation = (id) => {
+    const filteredReservations = loggedInGuest.reservations.filter(reservation => reservation.id !== id)
+    setLoggedInGuest({...loggedInGuest, reservations: filteredReservations})
+  }
+
   return (
     <BrowserRouter>
     <Header />
