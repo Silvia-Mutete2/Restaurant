@@ -18,7 +18,7 @@ const App = () => {
      <Navbar />
     <Routes>
         <Route exact path="/restaurants" element={<RestaurantList  />} />
-      
+        <Route exact path="/profile" element={<GuestProf />} />
         <Route exact path="/reservations" element={<ReservationList/>} />
 
       </Routes>
