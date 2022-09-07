@@ -7,6 +7,7 @@ import GuestProf from "./components/guest/GuestProf";
 import Navbar from "./components/navigation/Navbar";
 import GuestNav from "./components/navigation/GuestNav";
 import GuestLogin from "./components/login/GuestLogin";
+import RestaurantProf from "./components/restaurant/RestaurantProf";
 
 
 
@@ -57,7 +58,7 @@ const App = () => {
         <Route exact path="/restaurants" element={<RestaurantList restaurants={restaurants} isLoggedIn={isLoggedIn}/>} />
         <Route exact path="/profile" element={<GuestProf />} />
         <Route exact path="/reservations" element={<ReservationList  loggedInGuest={loggedInGuest}/>} />
-
+        <Route path="/restaurants/:id" element={<RestaurantProf restaurants={restaurants} loggedInGuest={loggedInGuest} addNewReservation={addNewReservation}/>}/>
       </Routes>
     </BrowserRouter>
   )
