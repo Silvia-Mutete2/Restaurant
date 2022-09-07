@@ -12,8 +12,14 @@ import GuestNav from "./components/navigation/GuestNav";
 const App = () => {
 
   const [restaurants, setRestaurants] = useState([])
-  
+  const [guests, setGuests] = useState([])
 
+  useEffect(() => {
+    fetch("http://localhost:9292/guests")
+      .then(r => r.json())
+      .then(fetchedGuests => setGuests(fetchedGuests))
+  }, [])
+  
   useEffect(() => {
     fetch("http://localhost:9292/restaurants")
       .then(r => r.json())
