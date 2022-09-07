@@ -1,7 +1,63 @@
 import { React, useState } from "react"
 
-const LoginHome = () => {
-    
+const LoginHome= ({ guests, setIsLoggedIn, currentGuestId, setCurrentGuestId, setLoggedInGuest, onAddNewGuest }) => {
+    const guestOptions = guests.map(guest => {
+        return { label: guest.name, value: guest.id }
+    })
+    const blankGuestTemplate = {
+        username: "",
+        password: "",
+        name: ""
+    }
+    const [newGuest, setNewGuest] = useState(blankGuestTemplate)
+
+    function compare(a, b) {
+        if (a.label < b.label) {
+            return -1;
+        }
+        if (a.label > b.label) {
+            return 1;
+        }
+        return 0;
+    }
+    guestOptions.sort(compare);
+
+
+    const handleDropdownChange = (event) => {
+        setCurrentGuestId(event.target.value)
+    }
+
+    const handleInputChange = (e) => {
+        const name = e.target.name
+        const value = e.target.value
+        console.log(name, value)
+        setNewGuest({ ...newGuest, [name]: value })
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const guest = guests.find(guest => guest.id === Number(currentGuestId))
+        setLoggedInGuest(guest)
+        setIsLoggedIn(() => true)
+    }
+
+    const handleNewGuest = (e) => {
+        e.preventDefault()
+        console.log(newGuest)
+        fetch("http://localhost:9292/guests", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ guest: newGuest }),
+        })
+            .then(r => r.json())
+            .then(newSubmission => {onAddNewGuest(newSubmission) 
+                setLoggedInGuest(newSubmission)
+                setCurrentGuestId(newSubmission.id)})
+        setIsLoggedIn(true)
+        setNewGuest(blankGuestTemplate)
+ }
 
     return (
         <div>
@@ -28,9 +84,10 @@ const LoginHome = () => {
                 <label>Password
                     <input type="text" name="password" value={newGuest.password} onChange={handleInputChange} />
                 </label>
-                <button type="submit" >Create account</button>
+                <button type="submit" >create account</button>
             </form>
         </div>
     )
 }
+
 export default LoginHome
