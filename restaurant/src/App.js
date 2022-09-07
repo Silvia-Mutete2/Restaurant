@@ -26,7 +26,7 @@ const App = () => {
      <GuestNav /> 
      <Navbar />
     <Routes>
-        <Route exact path="/restaurants" element={<RestaurantList restaurants={restautants} />} />
+        <Route exact path="/restaurants" element={<RestaurantList restaurants={restaurants} />} />
         <Route exact path="/profile" element={<GuestProf />} />
         <Route exact path="/reservations" element={<ReservationList/>} />
 
