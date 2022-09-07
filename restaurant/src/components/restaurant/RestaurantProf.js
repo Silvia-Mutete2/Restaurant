@@ -44,7 +44,6 @@ const RestaurantProf = ({ restaurants, loggedInGuest, addNewReservation }) => {
     addNewReservation(updatedGuestProfile)
     setNewReservation(blankReservationTemplate)
   }
-  
     return (
       <div>
         <h2>Make a Reservation at:</h2>
@@ -67,5 +66,4 @@ const RestaurantProf = ({ restaurants, loggedInGuest, addNewReservation }) => {
 
     )
 }
-
 export default RestaurantProf
