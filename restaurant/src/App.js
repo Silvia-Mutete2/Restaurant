@@ -49,6 +49,13 @@ const App = () => {
   }
   console.log("logged in guest", loggedInGuest)
 
+  const onUpdateReservation = (updatedReservation) => {
+    const reservationsWithReplacedReservation = loggedInGuest.reservations.map(reservation => reservation.id == updatedReservation.id ? updatedReservation : reservation)
+    setLoggedInGuest({...loggedInGuest, reservations: reservationsWithReplacedReservation})
+    const updatedGuests = guests.map(guest => guest.id == loggedInGuest.id ? loggedInGuest : guest)
+    setGuests(updatedGuests)
+  }
+
   return (
     <BrowserRouter>
     <Header />
@@ -57,7 +64,7 @@ const App = () => {
         <Route exact path="/" element={<GuestLogin guests={guests} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} currentGuestId={currentGuestId} setCurrentGuestId={setCurrentGuestId} loggedInGuest={loggedInGuest} setLoggedInGuest={setLoggedInGuest} onAddNewGuest={addNewGuest} />} />
         <Route exact path="/restaurants" element={<RestaurantList restaurants={restaurants} isLoggedIn={isLoggedIn}/>} />
         <Route exact path="/profile" element={<GuestProf />} />
-        <Route exact path="/reservations" element={<ReservationList  loggedInGuest={loggedInGuest}/>} />
+        <Route exact path="/reservations" element={<ReservationList  loggedInGuest={loggedInGuest} onDeleteReservation={onDeleteReservation} onUpdateReservation={onUpdateReservation}/>} />
         <Route path="/restaurants/:id" element={<RestaurantProf restaurants={restaurants} loggedInGuest={loggedInGuest} addNewReservation={addNewReservation}/>}/>
       </Routes>
     </BrowserRouter>
