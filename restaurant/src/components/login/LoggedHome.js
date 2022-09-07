@@ -8,3 +8,4 @@ const LoggedHome = ({loggedInGuest}) => {
   }
   
   export default LoggedHome
+  
