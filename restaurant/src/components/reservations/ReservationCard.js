@@ -1,6 +1,26 @@
-import React from "react"
+import {useState} from "react"
 
 const ReservationCard = () => {
+    const [toggleUpdateReservation, setToggleUpdateReservation] = useState(false)
+
+
+    const updateReservation = (e) => {
+        e.preventDefault()
+        console.log("update")
+        fetch(`http://localhost:9292/reservations/${reservation.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({"reservation": {time: updatedReservation.time, date: updatedReservation.date, number_of_guests: updatedReservation.number_of_guests}}),
+        })
+          .then(r => r.json())
+    
+        setToggleUpdateReservation(!toggleUpdateReservation)
+        
+      }
+    
+      if (reservation.restaurant) {
     
     return (
       <div>
@@ -26,7 +46,11 @@ const ReservationCard = () => {
             <button type="submit">Submit Reservation Update</button>
           </form> : null}
       </div>
-    )
+       )
+    } else {
+      <div></div>
+    }
+    
 }
   
 
