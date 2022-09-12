@@ -5,7 +5,7 @@ const ReservationCard = ({ reservation, onDeleteReservation, onUpdateReservation
   const [updatedReservation, setUpdatedReservation] = useState(reservation)
 
   const handleDelete = (reservation) => {
-    fetch(`http://localhost:9292/reservations/${reservation.id}`, {
+    fetch(`https://restaurant-backend2.herokuapp.com//reservations/${reservation.id}`, {
       method: "DELETE",
     })
       .then(() => onDeleteReservation(reservation.id))
@@ -25,7 +25,7 @@ const ReservationCard = ({ reservation, onDeleteReservation, onUpdateReservation
   const updateReservation = (e) => {
     e.preventDefault()
     console.log("update")
-    fetch(`http://localhost:9292/reservations/${reservation.id}`, {
+    fetch(`https://restaurant-backend2.herokuapp.com/reservations/${reservation.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

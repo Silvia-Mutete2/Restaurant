@@ -19,13 +19,13 @@ const App = () => {
   const [guests, setGuests] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:9292/guests")
+    fetch("https://restaurant-backend2.herokuapp.com/guests")
       .then(r => r.json())
       .then(fetchedGuests => setGuests(fetchedGuests))
   }, [])
   
   useEffect(() => {
-    fetch("http://localhost:9292/restaurants")
+    fetch("https://restaurant-backend2.herokuapp.com/restaurants")
       .then(r => r.json())
       .then(fetchedRestaurants => setRestaurants(fetchedRestaurants))
   }, [])

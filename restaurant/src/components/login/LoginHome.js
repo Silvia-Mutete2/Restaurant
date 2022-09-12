@@ -44,7 +44,7 @@ const LoginHome= ({ guests, setIsLoggedIn, currentGuestId, setCurrentGuestId, se
     const handleNewGuest = (e) => {
         e.preventDefault()
         console.log(newGuest)
-        fetch("http://localhost:9292/guests", {
+        fetch("https://restaurant-backend2.herokuapp.com/guests", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

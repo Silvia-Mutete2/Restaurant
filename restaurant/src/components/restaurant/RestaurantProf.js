@@ -27,7 +27,7 @@ const RestaurantProf = ({ restaurants, loggedInGuest, addNewReservation }) => {
 
   const handleNewReservation = (e) => {
     e.preventDefault()
-    fetch('http://localhost:9292/reservations', {
+    fetch('https://restaurant-backend2.herokuapp.com/reservations', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
