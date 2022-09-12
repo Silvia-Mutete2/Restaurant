@@ -1,8 +1,7 @@
-import ReservationCard from "../reservations/ReservationCard"
 import { Link, useNavigate } from "react-router-dom"
 
 
-const GuestProf= ({loggedInGuest, setLoggedInGuest, setIsLoggedIn}) => {
+const GuestProf = ({loggedInGuest, setLoggedInGuest, setIsLoggedIn}) => {
 
   let navigate = useNavigate()
 
@@ -19,7 +18,9 @@ const GuestProf= ({loggedInGuest, setLoggedInGuest, setIsLoggedIn}) => {
       <p>username: {loggedInGuest.username}</p>
       <Link to={"/reservations"}>View and edit my reservations</Link>
       <button onClick={logOutGuest}>Log Out</button>
-    </div> 
+    </div>
+    
   )
 }
+
 export default GuestProf

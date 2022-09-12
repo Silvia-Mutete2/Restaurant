@@ -65,24 +65,24 @@ const LoginHome= ({ guests, setIsLoggedIn, currentGuestId, setCurrentGuestId, se
             <form onSubmit={e => handleSubmit(e)}>
                 <label>
                     Select your name
-                    <select onChange={e => handleDropdownChange(e)}>
+                    <select onChange={e => handleDropdownChange(e)}> 
                         <option value="none" selected disabled hidden>Select an Option</option>
                         {guestOptions.map(option => (
                             <option value={option.value} key={option.value}>{option.label}</option>))}
                     </select>
-                </label>
+                </label> 
                 <button type="submit">login</button>
             </form>
             <h2>Create an account</h2>
             <form onSubmit={e => handleNewGuest(e)}>
                 <label>Name
-                    <input type="text" name="name" value={newGuest.name} onChange={handleInputChange} />
+                    <input type="text" name="name" value={newGuest.name} onChange={handleInputChange} /> <br/> <br/>
                 </label>
                 <label>Username
-                    <input type="text" name="username" value={newGuest.username} onChange={handleInputChange} />
+                    <input type="text" name="username" value={newGuest.username} onChange={handleInputChange} /> <br/> <br/>
                 </label>
                 <label>Password
-                    <input type="text" name="password" value={newGuest.password} onChange={handleInputChange} />
+                    <input type="text" name="password" value={newGuest.password} onChange={handleInputChange} /> <br/> <br/>
                 </label>
                 <button type="submit" >create account</button>
             </form>

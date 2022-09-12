@@ -5,7 +5,7 @@ const style = {
     margin: "5% 0 1%",
     padding: "1em",
     textDecoration: "none",
-    color: "black",
+    color: "blue",
     verticalAlign: "center"
 }
 const activeStyle = {

@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+.heading h1{
+  width: 100%;
+  height: 10vh;
+  background: rgb(150, 150, 233);
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+.heading h5{
+  margin-left: 20px;
+  font-size: 30px;
+  align-items: center;
+}
+.footer-section{
+  background:rgb(105, 105, 184);
+  position: relative;
+  font-size: 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

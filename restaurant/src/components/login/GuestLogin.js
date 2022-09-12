@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import LoginHome from './LoginHome'
 import LoggedHome from './LoggedHome'
+import Footer from '../navigation/Footer'
 
 
 const GuestLogin = ({ guests, 
@@ -19,6 +20,7 @@ const GuestLogin = ({ guests,
         onAddNewGuest={onAddNewGuest}/>}
 
         <Outlet />
+        <Footer/>
             
         </div >
     )

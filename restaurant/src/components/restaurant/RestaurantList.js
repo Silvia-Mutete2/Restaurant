@@ -1,3 +1,4 @@
+import Footer from '../navigation/Footer'
 import RestaurantCard from './RestaurantCard'
 
 const RestaurantList = ({restaurants, isLoggedIn}) => {
@@ -5,6 +6,7 @@ const RestaurantList = ({restaurants, isLoggedIn}) => {
     <div>
       <h2>Our Restaurants</h2>
       {restaurants.map(restaurant => <RestaurantCard restaurant={restaurant} isLoggedIn={isLoggedIn} key={restaurant.id}/>)}
+      <Footer/>
     </div>
     )
 }
